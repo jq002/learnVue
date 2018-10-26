@@ -201,6 +201,7 @@ export function mountComponent (
       vm._update(vm._render(), hydrating)
     }
   }
+  // jq:为vm渲染所需的每个属性，都注册全局的订阅者即watcher
 
   /*这里对该vm注册一个Watcher实例，Watcher的getter为updateComponent函数，用于触发所有渲染所需要用到的数据的getter，进行依赖收集，该Watcher实例会存在所有渲染所需数据的闭包Dep中*/
   vm._watcher = new Watcher(vm, updateComponent, noop)
